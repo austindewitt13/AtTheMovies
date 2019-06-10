@@ -3,6 +3,8 @@ package edu.cnm.deepdive.atthemovies;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.lifecycle.ViewModelProviders;
+import androidx.navigation.Navigation;
 import edu.cnm.deepdive.atthemovies.model.Movie;
 import edu.cnm.deepdive.atthemovies.viewmodel.MoviesViewModel;
 
@@ -41,13 +44,14 @@ public class MoviesFragment extends Fragment {
 
     final View view = inflater.inflate(R.layout.fragment_movies, container, false);
 
-    ListView moviesListView= view.findViewById(R.id.movies_list);
+    ListView moviesListView = view.findViewById(R.id.movies_list);
 
-    final MoviesViewModel viewModel = ViewModelProviders.of(this).get(MoviesViewModel.class);
+    final MoviesViewModel viewModel = ViewModelProviders.of(this)
+        .get(MoviesViewModel.class);
 
-    final ArrayAdapter<Movie> adapter = new ArrayAdapter<Movie>(context, android.R.layout.simple_list_item_1,
+    final ArrayAdapter<Movie> adapter = new ArrayAdapter<Movie>(context,
+        android.R.layout.simple_list_item_1,
         viewModel.getMovies());
-
     moviesListView.setAdapter(adapter);
 
     Button newMovieButton = view.findViewById(R.id.new_movie_button);
@@ -59,12 +63,24 @@ public class MoviesFragment extends Fragment {
         newMovie.setTitle(newMovieNameEditText.getText().toString());
         viewModel.addMovie(newMovie);
         adapter.notifyDataSetChanged();
+        newMovieNameEditText.setText("");
       }
     });
 
+    moviesListView.setOnItemClickListener(new OnItemClickListener() {
+      @Override
+      public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+        // This code opens the actor fragment and passes the movie id that was clicked.
+        MoviesFragmentDirections.ActionMoviesFragmentToActorsFragment action =
+            MoviesFragmentDirections.actionMoviesFragmentToActorsFragment()
+                .setMovieId(adapter.getItem(position).getId());
+        Navigation.findNavController(view).navigate(action);
+
+      }
+    });
     // Inflate the layout for this fragment
-  return view;
+    return view;
   }
 
 }

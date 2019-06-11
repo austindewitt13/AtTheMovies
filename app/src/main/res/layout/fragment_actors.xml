@@ -8,11 +8,12 @@
 
   <ListView
     android:id="@+id/actors_list"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
+    android:layout_width="391dp"
+    android:layout_height="598dp"
     android:layout_marginTop="8dp"
     android:layout_marginStart="8dp"
     app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"/>
 
@@ -26,7 +27,8 @@
     android:hint="Name"
     app:layout_constraintBottom_toTopOf="@+id/new_actor_button"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"/>
+    app:layout_constraintStart_toStartOf="parent"
+    />
 
   <Button
     android:id="@+id/new_actor_button"

@@ -10,51 +10,55 @@
   <ListView
     android:id="@+id/movies_list"
     android:layout_width="match_parent"
-    android:layout_height="609dp"
+    android:layout_height="0dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
     app:layout_constraintBottom_toTopOf="@+id/new_movie_name"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintHorizontal_bias="0.0"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.0">
+    app:layout_constraintTop_toTopOf="parent">
   </ListView>
 
   <EditText
     android:id="@+id/new_movie_name"
     android:layout_width="272dp"
-    android:layout_height="46dp"
-    android:layout_marginBottom="72dp"
+    android:layout_height="41dp"
+    android:layout_marginBottom="8dp"
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
     android:ems="10"
     android:inputType="textPersonName"
     android:text="@string/movie_title"
-    app:layout_constraintBottom_toTopOf="@id/new_movie_screenwriter"
+    app:layout_constraintBottom_toTopOf="@+id/new_movie_screenwriter"
     app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.495"
     app:layout_constraintStart_toStartOf="parent"/>
 
   <EditText
+    android:id="@+id/new_movie_screenwriter"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/new_movie_screenwriter"
+    android:layout_marginBottom="8dp"
     android:hint="Screenwriter"
-    app:layout_constraintBottom_toTopOf="@id/new_movie_genre"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"/>
+    app:layout_constraintBottom_toTopOf="@+id/new_movie_genre"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.498"
+    app:layout_constraintStart_toStartOf="parent"/>
 
   <Spinner
+    android:id="@+id/new_movie_genre"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:id="@+id/new_movie_genre"
+    android:layout_marginBottom="8dp"
     app:layout_constraintBottom_toTopOf="@+id/new_movie_button"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    />
+    app:layout_constraintHorizontal_bias="0.498"
+    app:layout_constraintStart_toStartOf="parent"/>
   <Button
     android:id="@+id/new_movie_button"
     android:layout_width="148dp"
     android:layout_height="50dp"
-    android:layout_marginTop="8dp"
     android:layout_marginBottom="8dp"
     android:layout_marginStart="8dp"
     android:layout_marginEnd="8dp"
@@ -62,7 +66,7 @@
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/new_movie_name"/>
+    />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

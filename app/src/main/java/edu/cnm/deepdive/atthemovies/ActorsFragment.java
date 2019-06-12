@@ -47,7 +47,7 @@ public class ActorsFragment extends Fragment {
         .get(MoviesViewModel.class);
 
     final Long movieId = ActorsFragmentArgs.fromBundle(getArguments()).getMovieId();
-    List<Actor> actors = viewModel.getMovie(movieId).getActors();
+    List<Actor> actors = viewModel.getMovie(movieId,context).getActors();
 
     final ArrayAdapter<Actor> adapter = new ArrayAdapter<>(context,
         android.R.layout.simple_list_item_1, actors);
@@ -62,7 +62,7 @@ public class ActorsFragment extends Fragment {
       public void onClick(View v) {
         Actor newActor = new Actor();
         newActor.setName(newActorName.getText().toString());
-        viewModel.getMovie(movieId).getActors().add(newActor);
+        viewModel.getMovie(movieId,context).getActors().add(newActor);
         adapter.notifyDataSetChanged();
         newActorName.setText("");
       }

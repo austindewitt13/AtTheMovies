@@ -29,8 +29,10 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     // For Kotlin use navigation-fragment-ktx
     implementation "androidx.navigation:navigation-ui:$nav_version"
-    implementation 'androidx.legacy:legacy-support-v4:1.0.0-beta01'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.facebook.stetho:stetho:1.5.1'
+    implementation 'androidx.room:room-runtime:2.1.0'
+    annotationProcessor 'androidx.room:room-compiler:2.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
